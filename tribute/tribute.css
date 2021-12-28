@@ -1,0 +1,71 @@
+
+
+main{
+  background-color:orange;
+  font-family: 'New Rocker', monotype;
+  height: auto;
+}
+
+.title-bg{
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#title{
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+}
+
+#img-div{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #000;
+}
+
+#image{
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+#img-caption{
+  font-size: 18px;
+  color: #FFF; 
+  text-align:center;
+}
+
+#tribute-info{
+  text-align: center;
+}
+
+h1{
+  font-size: 1.5em;
+  font-weight: normal;
+  text-align: center;
+}
+
+.storyline{
+  background-color: #FFF; 
+  text-align: center;
+  padding: 20px;
+}
+
+body{
+  background-color:#000;
+  display: block;
+}
+
+footer{
+  display: flex;
+  padding: 10px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
