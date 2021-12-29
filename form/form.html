@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./form.css" rel="stylesheet">
+  <title>FCC Form Project</title>
+</head>
+
+<body>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+  <h1 id="title" style="text-align:center; color:#FFF;">Venue Request Form</h1>
+  <h2 style="text-align:center; color:#666">Tulsa Opera, Inc.</h2>
+  <p id="description">Please use this form to reserve spaces and add events to the master calendar</p>
+  <div class="container">
+    <form id="survey-form">
+      <div class="formgroup">
+        <label for="name" id="name-label" class=formlabel>Name:</label>
+        <input type=text id="name" name="name" class="form-control" required placeholder="Contact Name">
+      </div>
+      <div class="formgroup">
+        <label for="email" id="email-label" class=formlabel>Email:</label>
+        <input type=email id="email" name="email" class="form-control" required placeholder="username@domain.com">
+      </div>
+      <div class="formgroup">
+        <label for="number" id="number-label" class=formlabel>Anticipated Number of Attendees:</label>
+        <input type=number id="number" name="number" class="form-control" required placeholder="1-999" min=1 max=999>
+      </div>
+      <div class="formgroup">
+        <label for="venuelist" id="number-label" class=formlabel>Select Venue:</label>
+        <input list=dropdown class="form-control">
+        <datalist id="dropdown">
+          <option value="Chapman Music Hall">
+          <option value="Charles Norman Theatre">
+          <option value="Baden Hall">
+          <option value="Conference Room">
+          <option value="Library">
+            </datlist>
+      </div>
+      <div class="formgroup">
+        <label for="public" id="public" class=formlabel>Is this event open to the public?:</label>
+        <div class="formlabel"><input type=radio name="public" value="yes" checked>Yes</div>
+        <div class="formlabel"><input type=radio name="public" value="no">No</div>
+      </div>
+      <div class="formgroup">
+        <label for="equip" id="equipment" class=formlabel>Equipment Needed(check all that apply):</label>
+        <label><input type=checkbox name="equip" value="piano" class="input-checkbox">Piano</label>
+        <label><input type=checkbox name="equip" value="audio" class="input-checkbox">Audio</label>
+        <label><input type=checkbox name="equip" value="projector" class="input-checkbox">Projector</label>
+        <label><input type=checkbox name="equip" value="whiteboard" class="input-checkbox">Whiteboard</label>
+        <label><input type=checkbox name="equip" value="stands" class="input-checkbox">Music Stands</label>
+      </div>
+
+      <div class="formgroup">
+        <label for="comments" class=formlabel>Additional Information:</label>
+        <textarea rows="5" cols="50" id="comments" name="comments" class="commentbox"
+          placeholder="enter additional information here">
+      </textarea>
+      </div>
+      <button id="submit" class="submit-button">Submit</button>
+    </form>
+  </div>
+
+
+
+
+
+  </div>
+</body>
+
+</html>
