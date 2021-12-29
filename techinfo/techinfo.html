@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./techinfo.css" rel="stylesheet">
+  <title>FCC Technical Documentation Project</title>
+</head>
+
+<body>
+  <nav id="navbar">
+    <header>
+      <h1>CSS Positioning Guide</h1>
+    </header>
+    <li>
+      <a href="#document_flow" class=nav-link>Document Flow</a>
+    </li>
+    <li>
+      <a href="#css_overview" class=nav-link>CSS Overview</a>
+    </li>
+    <li>
+      <a href="#position_property" class=nav-link>Position Property</a>
+    </li>
+    <li>
+      <a href="#display_property" class=nav-link>Display Property</a>
+    </li>
+    <li>
+      <a href="#padding_and_margins" class=nav-link>Padding and Margins</a>
+    </li>
+    <li>
+      <a href="#flexbox" class=nav-link>Flexbox</a>
+    </li>
+    <li>
+      <a href="#grid" class=nav-link>Grid</a>
+    </li>
+  </nav>
+  <main id="main-doc">
+    <section id="document_flow" class="main-section">
+      <header>
+        <h2>Document Flow</h2>
+      </header>
+      <p>HTML Documents without any styling information applied via CSS have a "normal flow" or default parameters for
+        how the browser displays them. By default, html elements will all flow to the left, and be displayed one after
+        the other in the order they exist in the HTML. Embedded links (anchor or 'a' tags) will continue as normal text
+        in this flow, wrapping lines and flowing left.</p>
+      <br>
+      <p>The HTML (and any associated CSS) are rendered by the browser through a sequence of steps:
+      <ul>
+        <br>
+        <li>The browser loads the HTML from the network.</li>
+        <li>The browser parses the HTML and creates the DOM (Document Object Model) as a representation of the page in
+          computer memory.</li>
+        <li>The browser fetches most linked assets (images, videos CSS, etc.). *Javascript is fetched later</li>
+        <li>The browser parses any present CSS and sorts it by the various types of selectors (id's, classes, elements,
+          etc.).</li>
+        <li>The parsed CSS is linked to the appropriate nodes in the DOM by selector to create the render tree.</li>
+        <li>The render tree is laid out in the order it should be displayed based on the applied styles.</li>
+        <li>The browser renders the page out to the display.</li>
+      </ul>
+      <br>Certain styling applied by CSS can remove elements from the "normal flow" causing the resulting appearance of
+      the web page to be significantly different from the layout of elements in the HTML. This can provide tremendous
+      flexibility in what a page looks like without significant changes to the order or structure of the HTML. For both
+      versatility and ease in development and support as well as accessibility for screen readers and other assistive
+      technologies, HTML should be structured to provide semantic clues, readable code, and concise and clear editing
+      structure. CSS should be applied via linked stylesheets (avoid inline styling to keep code clean) to handle the
+      visual layout of the resulting page separately from the writing of the content in the HTML.
+      </p>
+    </section>
+
+    <section id="css_overview" class="main-section">
+      <header>
+        <h2>CSS Overview</h2>
+      </header>
+      <p>
+        CSS Stands for Cascading Style Sheets. Following the HTML being read by the browser and parsed into the DOM
+        (Document Object Model), the browser will parse the CSS. CSS can be provided inline, at the head of a document,
+        or as a separate linked style sheet. The latter of these three is the most flexible and generally best practice
+        for readability and editability. Inline styling should generally be avoided as it causes clutter and is more
+        difficult to edit and keep organized then keeping all your style rules in one place.
+      </p>
+      <br>
+      <p>
+        The Cascading portion of the acronym refers to how the style rules are prioritized/rendered. There can be
+        multiple layers of rule selection that apply to a singular element in the HTML document. If any two rules are in
+        conflict as the browser cascades through the sheet, the last rule listed in the style sheet will take precedence
+        over earlier rules. If multiple selectors apply to a singular element and none of the rules are in conflict,
+        then all will be applied. If the browser encounters any style rules that are incompatible or unreadable, it will
+        simply ignore them and move on through the document.
+      </p>
+      <br>
+      <p>CSS uses a number of possible selectors to figure out what rules should be applied to which nodes in the DOM.
+        The selector is followed by {curly braces} Any applicable style rules between the curly braces will be applied
+        to all nodes in the DOM matching that selector. Nodes can be selected by:
+        <br><br>
+      <ul>
+        <li>ID - Set in html with id="". Must be unique/specific to one element. ID selectors in CSS are prefaced with a
+          # symbol, e.g. #elementid{}. </li>
+        <li>Class - Set in html with class="". Usable across many elements that share that styling. Class selectors in
+          CSS are prefaced with a period, e.g. .nav-link. </li>
+        <li>HTML Element type - you can style all instances of a particular HTML Element type (&lt span &gt, &lt ul &gt,
+          &lt img &gt, etc.) by using the type name as the selector in the CSS style sheet without any punctuation or
+          special characters.
+      </ul>
+      </p>
+      <p>
+        <br>
+        Selectors can be combined to increase specificity, or to apply the same rules across multiple selectors as
+        follows:
+        <br><br>
+      <ul>
+        <li>selectors separated by comma,(e.g. a, img, .nav-link{}) will apply the style rules between the curly braces
+          to all instances of each selector</li>
+        <li>
+          selectors separated only by spaces will add specificity (e.g. #main-doc img{}) will apply only to nodes that
+          meet all the criteria - in this case any &lt img &gt elements within the element with id=main-doc
+        </li>
+        <li>
+          selectors separated by a colon imply pseduo-classes or states of specific elements, e.g. button:active{} will
+          apply style rules to buttons in their active or "clicked" state.
+        </li>
+        <li>
+          2 preceding colons, e.g. ::before or ::after or ::first-line, select pseudo elements - for instance -
+          p::first-line would select the first line of each paragraph. For a list of common pseduo elements, <a
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">click here</a>.
+        </li>
+      </ul>
+      </p>
+    </section>
+
+    <section id="position_property" class="main-section">
+      <header>
+        <h2>Position Property</h2>
+      </header>
+      <p>
+        There are currently 7 possible settings for the position attribute of an element: static, fixed, absolute,
+        relative, sticky, initial, and inherit.
+      <ul>
+        <li class=subheading>static (default)</>
+        </li>
+        <p class=subp>
+          "static" is the default option for the position property. Items with static positioning are rendered "as-is"
+          in the order of the document flow
+        </p>
+        <li class=subheading>fixed</li>
+        <p class=subp>
+          "fixed" positioning will render the element relative to the viewport (browser window) and remove it from the
+          document flow.
+        </p>
+        <li class=subheading>absolute</li>
+        <p class=subp>
+          "absolute" positioning will render the element relative to its first positioned ancestor(e.g. not
+          position:static;).
+        </p>
+        <li class=subheading>relative</li>
+        <p class=subp>
+          "relative" positioning will render the element relative to its normal position (e.g where it would appear with
+          no specific position info).
+        </p>
+        <li class=subheading>sticky</li>
+        <p class=subp>
+          "sticky" positioning is dependent on scroll position of the user's browser window. position:sticky will render
+          the element as if it were position:relative until the element's scroll threshold is crossed at which point it
+          will render the element as position:fixed.
+        </p>
+        <li class=subheading>initial</li>
+        <p class=subp>
+          The initial setting will set the property of that item to its default value (in the case of position, that
+          will result in position:static)
+        </p>
+        <li class=subheading>inherit</li>
+        <p class=subp>
+          The inherit settings will set the property of that item to the value of its parent element.
+        </p>
+      </ul>
+      </p>
+    </section>
+
+    <section id="display_property" class="main-section">
+      <header>
+        <h2>Display Property</h2>
+      </header>
+      <p>
+        There are many possible settings for the display attribute of an element: The major types are inline, block,
+        inline-block, flex, grid, table and none. Initial and Inherit also work on display.
+      <ul>
+        <li class=subheading>inline (default)</li>
+        <p class=subp>
+          Inline is the default display type. It will render elements in the normal document flow, inline with the
+          elements around them (no added line breaks). Height and width properties have no effect.
+        </p>
+        <li class=subheading>block</li>
+        <p class=subp>
+          setting the display type to block will display the element as a block on a new line, taking the whole width.
+        </p>
+        <li class=subheading>inline-block</li>
+        <p class=subp>
+          inline-block displays the element as an inline level block container. The element itself is formatted as an
+          inline element but will allow for height and width settings.
+        </p>
+        <li class=subheading>flex</li>
+        <p class=subp>
+          CSS Flexbox is a display type that allows for flexible and responsive alignment and sizing of elements within
+          the flex container. The container is set to a display type of flex and then the arrangement of elements may be
+          adjusted with various properties detailed in the section on CSS Flexbox <a href=#flexbox>here</a>.
+        </p>
+        <li class=subheading>grid</li>
+        <p class=subp>
+          CSS Grid is a display type that creates a grid of rows and columns into which grid elements can be placed.
+          Similar to flex, but in two dimensions simultaneously with some additional controls. Grid is detailed in its
+          own section <a href=#grid>here</a>.
+        </p>
+        </p>
+    </section>
+
+    <section id="padding_and_margins" class="main-section">
+      <header>
+        <h2>Padding and Margins</h2>
+      </header>
+      <p>
+        Padding and Margins are similar CSS properties that affect the layout, primarily of block elements. Margin sizes
+        affect the distance between containers and other elements on the page. Padding affect the distance between
+        content and the border of its container. Margin will accept an <i>:auto</i> delcaration for centering purposes,
+        but padding will not. Margins and padding can be differentiated for the four sides of the content in a single
+        declaration in clockwise order - top, right, bottom, left. If only two values are declared, it will assume
+        symmetry (left = right and top = bottom). Single sides may also be declared directly using <i>padding-left</i>
+        or <i>margin-left</i> for instance.
+      </p>
+      <br>
+      <h3>Borders</h3>
+      Borders are drawn around the edge of a content area, outside the padding and inside the margins. Borders may have
+      a variety of style, thickness, and color like many other HTML/CSS elements. Border properties include:
+      <ul>
+        <li>border-style (required)</li>
+        <ul>
+          <li><i>none</i> - no border </li>
+          <li><i>hidden</i> - no visible border but affects table conflicts </li>
+          <li><i>dotted</i></li>
+          <li><i>dashed</i></li>
+          <li><i>solid</i></li>
+          <li><i>double</i></li>
+          <li><i>groove</i></li>
+          <li><i>ridge</i></li>
+          <li><i>inset</i></li>
+          <li><i>outset</i></li>
+          <li><i>initial</i></li>
+          <li><i>inherit</i></li>
+        </ul>
+        <li>border-width</li>
+        <li>border-color</li>
+      </ul>
+      <br>
+      <p>You must set a border style before you can set a width or color. Just like padding and margins, the 4 sides of
+        a border can be set independently with different properties either through the use of multiple arguments or
+        explicit selectors like <i>border-top</i>. Border width, style, and color can be set in a single declaration in
+        that order (e.g. <i>border: 5px solid red</i>).
+      </p>
+      <br>
+      <p>The property <i>border-radius</i> can be specified to round the corners of the border using the specified
+        radial value.
+      </p>
+      <br>
+      <p>
+      <h3>Box Sizing</h3>
+      How the total size of an element is calculated depends on the box-sizing model in play. The default setting for
+      this property is <i>content-box</i> which means the browser will apply any height or width specifications to the
+      content only. Then padding, border, and margins will all be added to that content dimension externally.
+      Alternately declaring <i>box-sizing:border-box</i>will include padding, border, and margins in the total size of
+      an element which generally makes layout more consistent when aligning and sizing objects with a variety of
+      padding, border, and margin configurations. The <i>box-sizing:border-box;</i> declaration is commonly made at the
+      top of a stylesheet using the <i>*, ::before, ::after </i> selectors to apply the sizing model universally to all
+      elements and pseudo elements.
+      </p>
+    </section>
+
+    <section id="flexbox" class="main-section">
+      <header>
+        <h2>Flexbox</h2>
+      </header>
+      <p> CSS Flexbox is a display type that allows for flexible and responsive alignment and sizing of elements within
+        the flex container. The container is set to a display type of flex and then the arrangement of elements may be
+        adjusted with the following properties:</p>
+      <ul>
+        <li class=subheading>flex-direction</li>
+        <p class=subp> set to column or row (and -reverse) will arrange items within the flexbox vertically or
+          horizontally. adding -reverse will render the elements bottom to top or right to left.</p>
+        <li class=subheading>flex-wrap</li>
+        <p class=subp> flex-wrap:wrap; will indicate that the content within the flexbox container should wrap as needed
+          based on window size. The default is no wrap where elements will be resized/clipped when they start to
+          overflow the container. Setting <i>flexwrap: nowrap;</i> will force items to not wrap and stay inline as the
+          flexbox resizes (default).</p>
+        <li class=subheading>flex-flow</li>
+        <p class=subp> flex-flow provides a shortcut to set both wrap and direction in a single declaration (i.e.
+          <i>flex-flow:row wrap;</i>)</p>
+        <li class=subheading>justify-content</li>
+        <p class=subp> aligns items along the major axis of the flexbox (row or column as set by flex-direction).
+        <ul>
+          <li><i>center</i> arranges elements evenly around the center of the flex container.</li>
+          <li><i>flex-start</i> arranges elements evenly starting at the beginning (left of flex container, unless
+            reversed). This is the default value. </li>
+          <li><i>flex-end</i> works similar to flex-start but from the other end of the major axis.</li>
+          <li><i>space-around</i> arranges the items distributed with even gaps along the major axis including at the
+            ends.</li>
+          <li><i>space-between</i> arranges the items distributed with even gaps along the major axis and half gap
+            spaces at the ends.</li>
+        </ul>
+        </p>
+        <li class=subheading>align-items</li>
+        <p class=subp> similar to justify-content, but used to align items along the perpendicular or minor axis of the
+          flexbox.
+        <ul>
+          <li><i>stretch</i> (default) - items are stretched to fill the height of the container.</li>
+          <li><i>center</i> - items are centered along the major axis of the container.</li>
+          <li><i>flex-start</i> - items are positioned at the start of the container.</li>
+          <li><i>flex-end</i> - items are positioned at the end of the container.</li>
+          <li><i>baseline</i> - items are aligned by the baseline of contents in the container. </li>
+          <li><i>initial</i> and <i>inherit</i> are options as well and function as usual. </li>
+        </ul>
+        </p>
+
+        <li class=subheading>align-content</li>
+        <p class=subp>functions in similar fashion and with similar arguments to align-items (<i>stretch (default),
+            center, flex-start, flex-end, baseline, initial, and inherit</i>). The difference is that align-content
+          applies to the arrangement of lines of content within a flex-container that has multiple lines of content as
+          opposed to the individual elements within a line of content.
+        </p>
+        </p>
+      </ul>
+    </section>
+
+    <section id="grid" class="main-section">
+      <header>
+        <h2>Grid</h2>
+      </header>
+      <p>
+        To utilize the CSS grid layout attribute, after setting the display property of the container via
+        <i>display:grid;</i> you can adjust spacing (gaps) of the rows and columns of grid items. All direct children of
+        the container set to <i>display:grid</i> become grid items. The grid consists of rows and columns of elements,
+        with row gaps between horizontal groups of content and column gaps between vertical groups of content. These can
+        be set uniformly with <i>grid-gap</i>. A singular value will set all the columns and rows to that width. You can
+        specify different widths for column gaps and row gaps either by providing two arguments for <i>grid-gap</i>
+        where the first argument sets row-gap height and the second sets column-gap width, or by explicitly calling out
+        the separate properties <i>grid-row-gap</i> and <i>grid-column-gap</i>.
+      </p>
+      <p class=subp>
+        For example:<br>
+        <code>display:grid;<br>
+              grid-gap: 20px 10px;
+        </code><br>
+        is the same net result as:<br>
+        <code>
+           display:grid;<br>
+           grid-column-gap:20px;<br>
+           grid-row-gap:10px;<br>
+         </code>
+      </p><br>
+      <p>Grid dimensions can be set using <i>grid-template-columns</i> and <i>grid-template-rows</i>. The arguments for
+        both of these properties specify the width of the column or row respectively (set all arguments to auto for
+        uniform widths). The number of arguments provided will determine the number of columns or rows in the grid
+        layout. <br>
+      <p class=subp>For example:<br>
+        <code>.grid-container{<br>
+            display:grid;<br>
+            grid-template-columns:50px auto auto auto;<br>
+            grid-template-rows:25px 50px;<br>
+          }</code><br>
+        defines a grid with 4 columns and 2 rows. The first column will have a fixed width of 50px, and columns 2-4 will
+        have uniform width based on subdividing the remaining space in the container. The first row will have a fixed
+        height of 25px and row 2 will have a fixed height of 50px.
+      </p><br>
+      <h3>Grid Items</h3>
+      <p class=subp>
+        When placing grid items, use the lines between the rows and columns to specify the area of the grid that item is
+        to occupy.
+      <p class=subp>
+        For example:<br>
+        <code>.item1{<br>
+                grid-column-start: 1;<br>
+                grid-column-end: 3;<br>
+                }<br>
+        </code><br>
+        will place an item that spans from the left edge of the grid to the line between column 3 and 4 of the grid.
+        Similarly:<br>
+        <code>
+              .item2{<br>
+           grid-row-start:2;<br>
+           grid-row-end:4;<br>
+           }<br>
+         </code><br>
+        will place an item that spans from the gap between rows 1 & 2 of the grid to the gap between rows 4 & 5.
+      </p> <br>
+      <p class=subp>This can also be handled with a single declaration such as <i>grid-column: 1/5;</i> which would
+        place an item between column gaps 1 and 5. You can also use the keyword <i>span</i> to specify a start and how
+        many columns or rows an item will span. (e.g.<i>grid-column: 1/span 3;</i>)</p><br>
+      <p class=subp>It can be shortcut even firther using the grid-area command with the format <i>grid-area: RowStart /
+          ColumnStart / RowEnd / ColumnEnd</i> or <i>grid-area: RowStart / ColumnStart / Row Span / Column Span </i>
+      </p><br>
+      <p class=subp>
+        <i>grid-area</i> and <i>grid-template-area</i> can also be used to name grid areas and map items onto them. When
+        specifying grid-template-areas, each row in the grid is separated with matched apostrophes (') and each spaced
+        argument within the apostrophes represents a column. You can us a period (.) to represent a grid space with no
+        name.
+      </p><br>
+      <p class=subp>For example:<br>
+        <code>.item1{<br>
+        grid-area: myArea;<br>
+        }<br>
+        .grid-container{<br>
+        grid-template-areas: 'myArea myArea myArea . .' 'myArea myArea myArea . .';<br>
+        }</code><br>
+        will specify a 5 column, 2 row grid (note the periods) where item1 will occupy the first 3 columns in both rows.
+      </p>
+    </section>
+
+  </main>
+
+</body>
+
+</html>
+
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
