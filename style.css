@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300;400&display=swap');
+
 *, ::before, ::after{
   padding:0px;
   margin:0px;
   box-sizing:border-box;
   line-height:1.5em;
+  font-family: 'Overpass Mono', monospace;
 }
 
 body{
@@ -71,20 +74,35 @@ text-align:center;
 
 #projects{
   display:flex;
-  padding:20px;
+  margin: 10px 0px;
+  flex-direction:column;
   justify-content: center;
   align-items: center;
 }
 
-#project-grid{
-  display:grid;
-  grid-template-rows:repeat(6, auto);
-  grid-gap:20px;
+#projects header {
+  background-color:rgba(0,0,0,.25);
+  display:flex;
+  margin:5px 0;
+  justify-content: center;
+  align-items: center;
+  flex-direction:column;
+  width: 100%;
+  padding:10px 5px;
+  border-top:2px solid grey;
+  border-bottom:2px solid grey;
+}
+.course-title{
+  color: grey;
+  text-align:center;
+  padding: 5px;
 }
 
 .project-tile{
-  height: 300px;
-  width: 300px;
+  height: 280px;
+  width: 280px;
+  margin:10px;
+  flex: none;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -111,19 +129,33 @@ text-align:center;
   color:grey;
   background-color:#115;
   width:90%;
-  margin: 0 auto;
+  margin: 70px auto 10px auto;
   font-size:1.25em;
   padding:25px;
   border:solid 2px;
   border-radius:5px;
 }
 
-.proj-thumb-cont{
+.proj-thumb{
   width:200px;
-  margin: 0 auto;
+  height:auto;
 }
 
-@media only screen and (min-width: 1000px)
+.proj-thumb-cont{
+  width:200px;
+  height:200px;
+  overflow:hidden;
+  margin: 10px auto;
+}
+
+.link-row{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@media only screen and (min-width: 700px)
 {
   #navbar{
     flex-direction:row;
@@ -134,9 +166,14 @@ text-align:center;
     margin-top:70px;
   }
 
-  #project-grid{
-    grid-template-columns:repeat(3, 300px);
-    grid-template-rows:repeat(2, 300px);
+  #projects{
+    flex-direction:row;
+    flex-wrap:wrap;
+  }
+
+  .link-row{
+    flex-direction: row;
+    width:100%;
   }
 
 }
