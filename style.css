@@ -8,6 +8,25 @@
   font-family: 'Overpass Mono', monospace;
 }
 
+a, a * {
+  text-decoration: none;
+}
+
+:visited{
+  color:grey;
+  text-decoration:none;
+}
+
+
+.link{
+  text-decoration:none;
+}
+
+.link:hover{
+  box-shadow: 0 0 10px 5px #117;
+  border-radius:10px;
+}
+
 body{
   background-color:#112;
   padding-bottom:40px;
@@ -125,15 +144,32 @@ text-align:center;
   border-radius:5px 5px 0 0;
 }
 
+.project-tile:hover{
+  box-shadow:0px 0px 10px 0px grey;
+}
+
 #about{
+  position:relative;
   color:grey;
   background-color:#115;
   width:90%;
   margin: 70px auto 10px auto;
-  font-size:1.25em;
   padding:25px;
   border:solid 2px;
   border-radius:5px;
+}
+
+#resumelink{
+  display:block;
+  margin:0px auto 10px auto;
+  text-align:center;
+  font-size:1.5em;
+  color: cyan;
+}
+
+#resumelink:hover{
+  color:white;
+  box-shadow:0px 0px 10px 0px grey;
 }
 
 .proj-thumb{
@@ -146,6 +182,17 @@ text-align:center;
   height:200px;
   overflow:hidden;
   margin: 10px auto;
+}
+
+.txtart{
+  display:flex;
+  width:100%;
+  height:100%;
+  justify-content: center;
+  align-items: center;
+  font-size:5em;
+  color: blue;
+  text-align: center;
 }
 
 .link-row{
@@ -176,4 +223,11 @@ text-align:center;
     width:100%;
   }
 
+  #resumelink{
+    position:absolute;
+    right:40px;
+    top:15px;
+    text-align:right;
+    font-size:1.5em;
+  }
 }
