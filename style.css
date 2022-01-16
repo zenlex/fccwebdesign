@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300;400&display=swap');
 
-*, ::before, ::after{
-  padding:0px;
-  margin:0px;
-  box-sizing:border-box;
-  line-height:1.5em;
+*, ::before, ::after {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  line-height: 1.5em;
   font-family: 'Overpass Mono', monospace;
 }
 
@@ -12,222 +12,252 @@ a, a * {
   text-decoration: none;
 }
 
-:visited{
-  color:grey;
-  text-decoration:none;
+:visited {
+  color: grey;
+  text-decoration: none;
 }
 
 
-.link{
-  text-decoration:none;
+.link {
+  text-decoration: none;
 }
 
-.link:hover{
+.link:hover {
   box-shadow: 0 0 10px 5px #117;
-  border-radius:10px;
+  border-radius: 10px;
 }
 
-body{
-  background-color:#112;
-  padding-bottom:40px;
+body {
+  background-color: #112;
+  padding-bottom: 40px;
 }
 
-#navbar{
-  display:flex;
-  flex-direction:column;
-  position:fixed;
-  top:0px;
-  height:140px;
-  width:100%;
-  background-color:#112;
-  align-items:center;
-  text-align:center;
-  border:solid 2px #001;
-}
-
-#navbar a{
-  width:33.3%;
-}
-
-#navmain{
-  display:flex;
-  justify-content:space-around;
-  width:100%;
-}
-
-.navlink{
-  color:grey;
-  font-size:1.4em;
-  margin:20px;
-}
-
-#profiles{
-display:flex;  
-background-color:#223;
-justify-content:space-around;
-align-items:center;  
-width:100%;
-height:100%;
-text-align:center;
-}
-
-#welcome-section{
-  margin-top:140px;
-  padding: 20px 5px;
-  display:flex;
-  flex-direction:column;
+#navbar {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0px;
+  height: 140px;
   width: 100%;
-  background-color:#003;
+  background-color: #112;
+  align-items: center;
+  text-align: center;
+  border: solid 2px #001;
 }
 
-.title{
-  text-align:center;
-  color:white;
-  font-size:2em;
-}
-.subtitle{
-  text-align:center;
-  color:grey;
-  font-size:1.25em;
+#navbar a {
+  width: 33.3%;
 }
 
-#projects{
-  display:flex;
+#navmain {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.navlink {
+  color: grey;
+  font-size: 1.4em;
+  margin: 20px;
+}
+
+#profiles {
+  display: flex;
+  background-color: #223;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+#welcome-section {
+  margin-top: 140px;
+  padding: 20px 5px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #003;
+}
+
+.title {
+  text-align: center;
+  color: white;
+  font-size: 2em;
+}
+
+.subtitle {
+  text-align: center;
+  color: grey;
+  font-size: 1.25em;
+}
+
+#projects {
+  display: flex;
   margin: 10px 0px;
-  flex-direction:column;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 #projects header {
-  background-color:rgba(0,0,0,.25);
-  display:flex;
-  margin:5px 0;
+  background-color: rgba(0, 0, 0, .25);
+  display: flex;
+  margin: 5px 0;
   justify-content: center;
   align-items: center;
-  flex-direction:column;
+  flex-direction: column;
   width: 100%;
-  padding:10px 5px;
-  border-top:2px solid grey;
-  border-bottom:2px solid grey;
+  padding: 10px 5px;
+  border-top: 2px solid grey;
+  border-bottom: 2px solid grey;
 }
-.course-title{
+
+.course-title {
   color: grey;
-  text-align:center;
+  text-align: center;
   padding: 5px;
 }
 
-.project-tile{
+.course-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.course-projects {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-tile {
   height: 280px;
   width: 280px;
-  margin:10px;
+  margin: 10px;
   flex: none;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  background-color:#003;
-  padding:10px 0px;
-  overflow:hidden;
-  border-radius:10px;
-  box-shadow:0px 0px 10px 0px #117;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #003;
+  padding: 10px 0px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px #117;
 }
 
-.project-title{
-  display:flex;
-  width:100%;
-  align-items:center;
-  justify-content:center;
+.project-title {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  font-size:1.5em;
-  font-weight:bold;
-  color:white;
-  border-radius:5px 5px 0 0;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
+  border-radius: 5px 5px 0 0;
 }
 
-.project-tile:hover{
-  box-shadow:0px 0px 10px 0px grey;
+.project-tile:hover {
+  box-shadow: 0px 0px 10px 0px grey;
 }
 
-#about{
-  position:relative;
-  color:grey;
-  background-color:#115;
-  width:90%;
+#about {
+  position: relative;
+  color: grey;
+  background-color: #115;
+  width: 90%;
   margin: 70px auto 10px auto;
-  padding:25px;
-  border:solid 2px;
-  border-radius:5px;
+  padding: 25px;
+  border: solid 2px;
+  border-radius: 5px;
 }
 
-#resumelink{
-  display:block;
-  margin:0px auto 10px auto;
-  text-align:center;
-  font-size:1.5em;
+#resumelink {
+  display: block;
+  margin: 0px auto 10px auto;
+  text-align: center;
+  font-size: 1.5em;
   color: cyan;
 }
 
-#resumelink:hover{
-  color:white;
-  box-shadow:0px 0px 10px 0px grey;
+#resumelink:hover {
+  color: white;
+  box-shadow: 0px 0px 10px 0px grey;
 }
 
-.proj-thumb{
-  width:200px;
-  height:auto;
+.proj-thumb {
+  width: 200px;
+  height: auto;
 }
 
-.proj-thumb-cont{
-  width:200px;
-  height:200px;
-  overflow:hidden;
+.proj-thumb-cont {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
   margin: 10px auto;
 }
 
-.txtart{
-  display:flex;
-  width:100%;
-  height:100%;
+.txtart {
+  display: flex;
+  width: 100%;
+  height: 100%;
   justify-content: center;
   align-items: center;
-  font-size:5em;
+  font-size: 5em;
   color: blue;
   text-align: center;
 }
 
-.link-row{
-  display:flex;
+.link-row {
+  display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
 
-@media only screen and (min-width: 700px)
-{
-  #navbar{
-    flex-direction:row;
-    height:70px;
-  }
+.link-row>a {
+  margin: 5px 15px;
+  font-size:1.25em;
+  text-align:center;
+}
 
-  #welcome-section{
-    margin-top:70px;
-  }
-
-  #projects{
-    flex-direction:row;
-    flex-wrap:wrap;
-  }
-
-  .link-row{
+@media only screen and (min-width: 700px) {
+  #navbar {
     flex-direction: row;
-    width:100%;
+    height: 70px;
   }
 
-  #resumelink{
-    position:absolute;
-    right:40px;
-    top:15px;
-    text-align:right;
-    font-size:1.5em;
+  #welcome-section {
+    margin-top: 70px;
+  }
+
+  .course-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .course-projects {
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .link-row {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+
+  #resumelink {
+    position: absolute;
+    right: 40px;
+    top: 15px;
+    text-align: right;
+    font-size: 1.5em;
   }
 }
