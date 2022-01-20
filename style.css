@@ -54,22 +54,28 @@ body {
   justify-content: space-around;
   width: 100%;
   height:70px;
+ background-color: #001;
 }
 
 .navlink {
   color: grey;
   font-size: 1.4em;
-  margin: 20px;
+  border:none;
+  transition: background-color 0.25s ease;
+  padding:20px 0
+}
+
+.navlink:hover{
+  box-shadow: 0 0 10px 5x inset grey;
+  background-color: rgb(28, 28, 153);
 }
 
 #profiles {
-  display: flex;
   background-color: #223;
+  display: flex;
   justify-content: space-around;
-  align-items: center;
   width: 100%;
-  height: 70px;
-  text-align: center;
+  height:70px;
 }
 
 #welcome-section {
@@ -113,7 +119,7 @@ body {
 
 
 #projects header {
-  background-color: rgba(0, 0, 0, .25);
+  background-color: rgba(0, 0, 0, .50);
   display: flex;
   margin: 5px 0;
   justify-content: center;
