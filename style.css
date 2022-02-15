@@ -99,7 +99,14 @@ body {
   color: lightgrey;
   font-size: 1.25em;
   max-width: 1200px;
-  padding: 50px;
+  padding: 20px 40px;
+}
+
+.name {
+  color: lightgrey;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
 }
 
 #projects::before {
