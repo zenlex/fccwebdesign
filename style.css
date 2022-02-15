@@ -66,7 +66,7 @@ body {
   padding: 20px 0
 }
 
-757575757575 .navlink:hover {
+.navlink:hover {
   box-shadow: 0 0 10px 5x inset grey;
   background-color: rgb(28, 28, 153);
 }
@@ -273,6 +273,10 @@ body {
   #navbar {
     position: fixed;
     flex-direction: row;
+    height: 70px;
+  }
+
+  #navmain, #profiles {
     height: 70px;
   }
 
