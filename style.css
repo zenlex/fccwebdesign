@@ -58,7 +58,7 @@ body {
 }
 
 .navlink {
-  color: grey;
+  color: lightgrey;
   font-size: 1.4em;
   border: none;
   transition: background-color 0.25s ease;
@@ -203,6 +203,10 @@ body {
   border: solid 2px;
   border-radius: 5px;
   font-size: 1.25em;
+}
+
+#about a {
+  color: cyan
 }
 
 #resumelink {
