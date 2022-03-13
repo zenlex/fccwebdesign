@@ -121,7 +121,7 @@ body {
 #projects::before {
   display: block;
   content: " ";
-  height: 80px;
+  height: 0px;
   visibility: hidden;
   pointer-events: none;
 }
