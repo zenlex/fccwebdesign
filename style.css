@@ -35,7 +35,6 @@ body {
 #navbar {
   display: flex;
   flex-direction: column;
-  position: absolute;
   top: 0px;
   height: 100px;
   width: 100%;
@@ -87,9 +86,10 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: calc(100vh - 140px);
+  min-height: calc(100vh - 120px);
   background-color: #003;
-  margin-top: 140px;
+  z-index: -1;
+  overflow: auto;
 }
 
 #welcome-section a {
@@ -107,7 +107,7 @@ body {
   text-align: center;
   color: lightgrey;
   font-size: 1.25em;
-  max-width: 1200px;
+  max-width: 600px;
   padding: 20px 40px;
 }
 
