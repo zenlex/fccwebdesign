@@ -108,6 +108,7 @@ body {
 
 #welcome-section ul {
   margin: 10px;
+  list-style: none;
 }
 
 #profilepic {
