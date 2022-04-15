@@ -321,6 +321,7 @@ body {
     position: fixed;
     flex-direction: row;
     height: 70px;
+    z-index: 1;
   }
 
   #navmain, #profiles {
@@ -335,13 +336,13 @@ body {
     font-size: 1.4em;
   }
 
-  #projects::before {
+  /* #projects::before {
     display: block;
     content: " ";
     height: 70px;
     visibility: hidden;
     pointer-events: none;
-  }
+  } */
 
   .proj-thumb {
     width: 15vw;
@@ -352,6 +353,14 @@ body {
   .bubble, .lightbeam {
     width: 15vw;
     height: 15vw;
+  }
+
+  .course-container::before {
+    display: block;
+    content: " ";
+    height: 70px;
+    visibility: hidden;
+    pointer-events: none;
   }
 
   .course-container {
